@@ -4,7 +4,6 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
  * `ddd-card-list`
@@ -12,23 +11,16 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
  * @demo index.html
  * @element ddd-card-list
  */
-export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
+export class DddCard extends DDDSuper((LitElement)) {
 
   static get tag() {
-    return "ddd-card-list";
+    return "ddd-card";
   }
 
   constructor() {
     super();
     this.name = "";
-
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/ddd-card-list.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.image = "";
   }
 
   // Lit reactive properties
@@ -36,6 +28,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       name: { type: String },
+      image: { type : String }
     };
   }
 
@@ -56,6 +49,9 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-s));
       }
+      ::slotted(span){
+        font-size: 10px;
+      }
     `];
   }
 
@@ -63,7 +59,10 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
+  <img class="image" src='${this.image}'>
+  <hr class="divider">
+  <h3 class="header">${this.name}</h3>
+  <p class="description"></p>
   <slot></slot>
 </div>`;
   }
