@@ -20,6 +20,7 @@ export class DddCard extends DDDSuper((LitElement)) {
   constructor() {
     super();
     this.name = "";
+    this.color = "black";
     this.image = "";
   }
 
@@ -28,6 +29,7 @@ export class DddCard extends DDDSuper((LitElement)) {
     return {
       ...super.properties,
       name: { type: String },
+      color: { type : String },
       image: { type : String }
     };
   }
@@ -42,15 +44,29 @@ export class DddCard extends DDDSuper((LitElement)) {
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
+      .wrapper:hover{
+        box-shadow: 5px 5px 5px darkgrey;
+      }
       .wrapper {
         margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+        height: 400px;
+        max-width: 500px;
+        border-radius: 25px;
+        background-color: white;
       }
-      h3 span {
-        font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-s));
+      .image {
+        object-fit: cover; 
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        width: 100%;
+        height: 150px;
+      }
+      .header {
+        font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-m));
+        margin: 10px 15px;
       }
       ::slotted(span){
-        font-size: 10px;
+        font-size: var(--ddd-card-list-body-font-size);
       }
     `];
   }
@@ -60,8 +76,8 @@ export class DddCard extends DDDSuper((LitElement)) {
     return html`
 <div class="wrapper">
   <img class="image" src='${this.image}'>
-  <hr class="divider">
-  <h3 class="header">${this.name}</h3>
+  <hr class="divider" style="border: 12px solid ${this.color};">
+  <h3 class="header" style="color: ${this.color}">${this.name}</h3>
   <p class="description"></p>
   <slot></slot>
 </div>`;
