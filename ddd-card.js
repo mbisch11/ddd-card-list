@@ -65,8 +65,9 @@ export class DddCard extends DDDSuper((LitElement)) {
         font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-m));
         margin: 10px 15px;
       }
-      ::slotted(span){
+      ::slotted(.description){
         font-size: var(--ddd-card-list-body-font-size);
+        color: black;
       }
     `];
   }
@@ -78,8 +79,7 @@ export class DddCard extends DDDSuper((LitElement)) {
   <img class="image" src='${this.image}'>
   <hr class="divider" style="border: 12px solid ${this.color};">
   <h3 class="header" style="color: ${this.color}">${this.name}</h3>
-  <p class="description"></p>
-  <slot></slot>
+  <slot><p class="description"></p></slot>
 </div>`;
   }
 
