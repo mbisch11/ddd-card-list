@@ -22,11 +22,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
     this.registerLocalization({
       context: this,
       localesPath:
@@ -50,16 +45,19 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
-        font-family: var(--ddd-font-navigation);
-      }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
       }
-      h3 span {
-        font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-s));
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--ddd-spacing-4);
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+      @media (max-width: 600px) {
+        .wrapper {
+          grid-template-columns: 1fr;
+        }
       }
     `];
   }
@@ -67,10 +65,13 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
-</div>`;
+  <div class="wrapper">
+    <slot></slot>
+  </div>`;
+  }
+
+  createRenderRoot(){
+    return this;
   }
 
   /**

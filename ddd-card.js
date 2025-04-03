@@ -20,8 +20,9 @@ export class DddCard extends DDDSuper((LitElement)) {
   constructor() {
     super();
     this.name = "";
-    this.color = "black";
     this.image = "";
+    this.href = "";
+    this.description = "";
   }
 
   // Lit reactive properties
@@ -29,8 +30,9 @@ export class DddCard extends DDDSuper((LitElement)) {
     return {
       ...super.properties,
       name: { type: String },
-      color: { type : String },
-      image: { type : String }
+      image: { type : String },
+      href: { type : String },
+      description: { type : String }
     };
   }
 
@@ -39,7 +41,7 @@ export class DddCard extends DDDSuper((LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        display: inline-block;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
@@ -49,25 +51,63 @@ export class DddCard extends DDDSuper((LitElement)) {
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
-        height: 400px;
-        max-width: 500px;
-        border-radius: 25px;
+        height: 525px;
+        max-width: 415px;
+        border-radius: 12px;
         background-color: white;
+        display: flex;
+        flex-direction: column;
       }
       .image {
         object-fit: cover; 
-        border-top-left-radius: 25px;
-        border-top-right-radius: 25px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
         width: 100%;
         height: 150px;
+        border-bottom: 12px solid navy;
+      }
+      .content {
+        padding-left: var(--ddd-spacing-4);
+        padding-right: var(--ddd-spacing-4);
+        padding-top: var(--ddd-spacing-4);
+        padding-bottom: var(--ddd-spacing-5);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
       .header {
         font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-m));
-        margin: 10px 15px;
+        font-size: 24px;
+        font-weight: 700;
+        color: navy;
+        margin: 0px;
       }
-      ::slotted(.description){
-        font-size: var(--ddd-card-list-body-font-size);
+      .description-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        margin-top: var(--ddd-spacing-2);
+        margin-bottom: var(--ddd-spacing-4);
+      }
+      .description {
+        flex-grow: 1;
         color: black;
+        margin: 0;
+        padding: 0;
+      }
+      .explore {
+        padding: var(--ddd-spacing-3);
+        background-color: navy;
+        color: white;
+        font-size: 16px;
+        width: 100%;
+        margin-top: auto;
+        border: 2px;
+        transition: background-color 0.3s ease;
+        border-radius: 4px;
+      }
+      .explore:hover{
+        background-color: #080a4d;
       }
     `];
   }
@@ -77,9 +117,13 @@ export class DddCard extends DDDSuper((LitElement)) {
     return html`
 <div class="wrapper">
   <img class="image" src='${this.image}'>
-  <hr class="divider" style="border: 12px solid ${this.color};">
-  <h3 class="header" style="color: ${this.color}">${this.name}</h3>
-  <slot><p class="description"></p></slot>
+  <div class="content">
+    <h2 class="header">${this.name}</h2>
+    <div class="description-container">
+      <slot class="description"></slot>
+    </div>
+    <a href="${this.href}" target="_blank"><button class="explore">Explore ></button></a>
+  </div> 
 </div>`;
   }
 
