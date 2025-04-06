@@ -20,9 +20,9 @@ export class DddCard extends DDDSuper((LitElement)) {
   constructor() {
     super();
     this.name = "";
-    this.image = "";
+    this.image = "https://psu-gatsby-files-prod.s3.amazonaws.com/s3fs-public/styles/16_9_1000w/public/picture-24286-1416511085.jpg?h=1f82f633&itok=b2xWVSQg";
     this.href = "";
-    this.description = "";
+    //this.description = "";
   }
 
   // Lit reactive properties
@@ -31,8 +31,8 @@ export class DddCard extends DDDSuper((LitElement)) {
       ...super.properties,
       name: { type: String },
       image: { type : String },
-      href: { type : String },
-      description: { type : String }
+      href: { type : String }
+      //description: { type : String }
     };
   }
 
@@ -62,8 +62,8 @@ export class DddCard extends DDDSuper((LitElement)) {
         object-fit: cover; 
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
-        width: 100%;
-        height: 150px;
+        max-height: 250px;
+        aspect-ratio: 3/2;
         border-bottom: 12px solid navy;
       }
       .content {
@@ -109,6 +109,14 @@ export class DddCard extends DDDSuper((LitElement)) {
       .explore:hover{
         background-color: #080a4d;
       }
+      @media (max-width: 768px) {
+      .wrapper {
+        min-height: 400px;
+      }
+      .image {
+        height: 150px;
+      }
+    }
     `];
   }
 

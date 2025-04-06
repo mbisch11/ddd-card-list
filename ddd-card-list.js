@@ -44,14 +44,15 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        display: flex;
+        flex-direction: column;
         padding: var(--ddd-spacing-4);
       }
       .wrapper {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: var(--ddd-spacing-4);
-        max-width: 1440px;
+        max-width: 100%;
         margin: 0 auto;
       }
       @media (max-width: 600px) {
