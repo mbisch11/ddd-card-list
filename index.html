@@ -6,83 +6,50 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Demonstration for ddd-card-list">
-
-  <style>
-    :root, html, body {
-      margin: 0;
-      padding: 0;
-      background-color: lightblue;
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    ddd-card-list {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    ddd-card-list:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --ddd-card-list-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
-  </style>
   <title>ddd-card-list</title>
 </head>
 
+<style>
+  head, body{
+    background-color: lightgrey;
+  }
+  #head {
+    color: black;
+  }
+  #demo {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
 <body>
+  <script type="module" src="./ddd-card.js"></script>
+  <script type="module" src="./ddd-card-list.js"></script>
   <div id="demo">
-    <h1>ddd-card-list</h1>
+    <h1 id="head">ddd-card-list</h1>
     <ddd-card-list title="Example Card List">
-      <ddd-card name="Cool card" color="orange">
-        Normal description of a normal thing that does normal things, such as practicing it's normalcy.
+      <ddd-card name="Abington" image="https://images.ctfassets.net/ni9rh5nu0d99/1paFaX2Dc7iHh9Z6K7mIim/1427b9970ff21dd9c8a770067638efc1/abington-02.jpg?fm=webp&w=1200&q=75">
+        Close to Philadelphia, Penn State Abington’s suburban campus offers bachelor's degrees, athletics, and a diverse student community.
       </ddd-card>
-      <ddd-card name="Cool card" image="https://thumbs.dreamstime.com/b/excited-african-american-man-pointing-finger-background-template-text-stock-photo-149317403.jpg" color="black">
-        Sample slot content
+      <ddd-card name="Atloona" image="https://images.ctfassets.net/ni9rh5nu0d99/6oBUNrVTNPJaoE9ahnVX2E/2c655bdcf28befdf81d5a24248a9dca5/altoona-01.jpg?fm=webp&w=1080&q=75">
+      In central Pennsylvania close to University Park, Penn State Altoona offers the appeal of a small college with the prestige of a major research university.
+      </ddd-card>
+      <ddd-card name="Beaver" image="https://images.ctfassets.net/ni9rh5nu0d99/C6YPZMqHyRaPeRrVTun8k/1ca61866afa1b3d903944a38ea34cecc/beaver-01.jpg?fm=webp&w=1200&q=75">
+        Situated on one hundred acres, Penn State Beaver offers several bachelor's degrees, on-campus housing, and varsity sports, all within easy reach of Pittsburgh.
+      </ddd-card>
+      <ddd-card name="Behrend" image="https://images.ctfassets.net/ni9rh5nu0d99/1at2Tdx2RaIuI56SVrUWFM/b06b752a3e78509f0266db2b59aa5364/behrend-01.jpg?fm=webp&w=1200&q=75">
+        Located in northwestern Pennsylvania, Penn State Behrend offers undergraduate and graduate degrees, research experiences, on-campus living, and athletics.
+      </ddd-card>
+      <ddd-card name="Berks" image="https://images.ctfassets.net/ni9rh5nu0d99/3WXgadpl3oKX50MmPHGV6m/a91103dc9e4bbe123e29fd25b81e3402/berks-02.jpg?fm=webp&w=1200&q=75">
+        Penn State Berks offers bachelor’s degrees and four associate programs with small classes, internships, undergraduate research opportunities, and residential campus life.
+      </ddd-card>
+      <ddd-card name="Brandywine" image="https://images.ctfassets.net/ni9rh5nu0d99/2p1eWsDl9umbeRKa02UEsQ/bba80b11dd34aecab19db215eaa8bb59/brandywine-01.jpg?fm=webp&w=1200&q=75">
+        Penn State Brandywine is all about the highest quality in teaching, research, scholarship, and service to the campus, students, and the Delaware County community.
       </ddd-card>
     </ddd-card-list>
   </div>
-  <script type="module" src="./ddd-card.js"></script>
-  <!-- <script type="module" src="./ddd-card.js"></script> -->
-
-  <!-- Take HAX, the Web and you further down the rabbit hole -->
-  <style>
-    #follow-the-white-rabbit {
-      margin: var(--ddd-spacing-4) auto 64px  16px;
-      background-color: var(--ddd-accent-4);
-      color: black;
-    }
-    #follow-the-white-rabbit[open] summary {
-      background-color: var(--ddd-accent-4) !important;
-      color: black;
-    }
-    #follow-the-white-rabbit[open] .content {
-      padding: 0 var(--ddd-spacing-4);
-    }
-    #follow-the-white-rabbit ul,
-    #follow-the-white-rabbit li {
-      padding: 0;
-      margin: 0;
-    }
-    #follow-the-white-rabbit li {
-      font-size: var(--ddd-font-size-xs);
-      list-style: none;
-    }
-    #follow-the-white-rabbit li strong,
-    #follow-the-white-rabbit li a {
-      padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
-      color: black;
-      display: block;
-      font-weight: bold;
-    }
-    #follow-the-white-rabbit li:focus-within a,
-    #follow-the-white-rabbit li:hover a {
-      background-color: black;
-      color: yellow;
-    }
-  </style>
+  
 </body>
 </html>

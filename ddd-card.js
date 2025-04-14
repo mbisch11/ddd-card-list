@@ -22,7 +22,6 @@ export class DddCard extends DDDSuper((LitElement)) {
     this.name = "";
     this.image = "https://psu-gatsby-files-prod.s3.amazonaws.com/s3fs-public/styles/16_9_1000w/public/picture-24286-1416511085.jpg?h=1f82f633&itok=b2xWVSQg";
     this.href = "";
-    //this.description = "";
   }
 
   // Lit reactive properties
@@ -45,26 +44,31 @@ export class DddCard extends DDDSuper((LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
-      }
-      .wrapper:hover{
-        box-shadow: 5px 5px 5px darkgrey;
+        margin: var(--ddd-spacing-3);
+        padding: 0;
       }
       .wrapper {
-        margin: var(--ddd-spacing-2);
-        height: 525px;
-        max-width: 415px;
-        border-radius: 12px;
+        margin: 0 auto;
+        height: 100%;
+        min-height: 490px;
+        width: 310px;
+        border-radius: var(--ddd-spacing-3);
         background-color: white;
         display: flex;
         flex-direction: column;
+        word-wrap: break-word;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 8px 0px #00032120;
       }
       .image {
         object-fit: cover; 
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
-        max-height: 250px;
+        width: 100%;
+        height: auto;
+        max-height: 205px;
         aspect-ratio: 3/2;
-        border-bottom: 12px solid navy;
+        border-bottom: 12px solid var(--ddd-theme-default-nittanyNavy);
       }
       .content {
         padding-left: var(--ddd-spacing-4);
@@ -79,7 +83,7 @@ export class DddCard extends DDDSuper((LitElement)) {
         font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-m));
         font-size: 24px;
         font-weight: 700;
-        color: navy;
+        color: var(--ddd-theme-default-nittanyNavy);
         margin: 0px;
       }
       .description-container {
@@ -94,10 +98,13 @@ export class DddCard extends DDDSuper((LitElement)) {
         color: black;
         margin: 0;
         padding: 0;
+        font-family: Arial, Tahoma, sans-serif;
+        line-height: var(--ddd-lh-150);
+        font-size: 18px;
       }
       .explore {
         padding: var(--ddd-spacing-3);
-        background-color: navy;
+        background-color: var(--ddd-theme-default-beaverBlue);
         color: white;
         font-size: 16px;
         width: 100%;
@@ -107,16 +114,29 @@ export class DddCard extends DDDSuper((LitElement)) {
         border-radius: 4px;
       }
       .explore:hover{
-        background-color: #080a4d;
+        background-color: var(--ddd-theme-default-nittanyNavy);
       }
       @media (max-width: 768px) {
-      .wrapper {
-        min-height: 400px;
+        .wrapper {
+          min-height: 350px;
+          max-width: 350px;
+        }
+        .header {
+          font-size: 20px;
+        }
+        .image {
+          height: 150px;
+        }
       }
-      .image {
-        height: 150px;
+      @media (max-width: 480px) {
+        .wrapper {
+          max-width: 100%;
+          min-height: 300px;
+        }
+        .explore {
+          font-size: 14px;
+        }
       }
-    }
     `];
   }
 

@@ -22,13 +22,6 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/ddd-card-list.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
   }
 
   // Lit reactive properties
@@ -44,21 +37,18 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: flex;
-        flex-direction: column;
-        padding: var(--ddd-spacing-4);
+        display: inline-block;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
       }
       .wrapper {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: var(--ddd-spacing-4);
-        max-width: 100%;
+        padding: var(--ddd-spacing-6);
+        max-width: 1400px;
         margin: 0 auto;
-      }
-      @media (max-width: 600px) {
-        .wrapper {
-          grid-template-columns: 1fr;
-        }
+        height: 100%;
+        box-sizing: border-box;
+        justify-items: center;
       }
     `];
   }
